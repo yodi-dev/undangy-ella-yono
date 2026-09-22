@@ -6,18 +6,29 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxtjs/google-fonts',
   ],
-  devtools: { enabled: true }, app: {
+  devtools: { enabled: true },
+  app: {
     head: {
+      htmlAttrs: {
+        lang: 'id',
+      },
       meta: [
+        { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'theme-color', content: '#2A0D14' },
+        { name: 'format-detection', content: 'telephone=no' },
       ],
       link: [
-        { rel: 'icon', type: 'image/png', href: '/images/favicon.svg' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/images/favicon.svg' },
       ],
     },
   },
   runtimeConfig: {
     public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL
+        || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : '')
+        || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '')
+        || 'https://undangy-ella-yono.vercel.app',
       supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL
         || '',
       supabaseKey: process.env.NUXT_PUBLIC_SUPABASE_KEY

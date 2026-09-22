@@ -6,6 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "generate:og": "node scripts/generate-og.mjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
@@ -24,6 +25,7 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/tailwindcss": "^6.14.0",
     "eslint": "^9.26.0",
+    "sharp": "^0.35.4",
     "typescript": "^5.8.3"
   }
 }

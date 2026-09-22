@@ -4,10 +4,20 @@ export interface SeoConfig {
   ogTitle: string
   ogDescription: string
   ogImage: string
-  ogImageWidth: string
-  ogImageHeight: string
-  ogUrl: string
-  twitterCard: string
+  ogImageType?: string
+  ogImageWidth?: string | number
+  ogImageHeight?: string | number
+  ogImageAlt?: string
+  ogUrl?: string
+  ogType?: string
+  ogSiteName?: string
+  ogLocale?: string
+  twitterCard?: 'summary' | 'summary_large_image' | 'app' | 'player'
+  twitterTitle?: string
+  twitterDescription?: string
+  twitterImage?: string
+  twitterImageAlt?: string
+  themeColor?: string
 }
 
 export interface PersonInfo {
