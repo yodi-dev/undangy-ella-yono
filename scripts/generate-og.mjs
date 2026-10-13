@@ -61,10 +61,10 @@ async function createOgImage() {
       <line x1="-80" y1="215" x2="80" y2="215" class="divider-line" />
 
       <!-- Main Names -->
-      <text x="0" y="295" class="names">Ella <tspan class="amp">&amp;</tspan> Yono</text>
+      <text x="0" y="295" class="names">Yono <tspan class="amp">&amp;</tspan> Ella</text>
 
       <!-- Date -->
-      <text x="0" y="365" class="date">MINGGU, 11 OKTOBER 2026</text>
+      <text x="0" y="365" class="date">MINGGU, 25 OKTOBER 2026</text>
 
       <!-- Location -->
       <text x="0" y="405" class="location">Simpang Nibung • Sarolangun, Jambi</text>

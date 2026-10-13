@@ -56,14 +56,14 @@ const hasPersonalizedGuest = computed(() => {
 
 const metaTitle = computed(() => {
   if (hasPersonalizedGuest.value && guestName.value) {
-    return `The Wedding of Ella & Yono - Untuk ${guestName.value}`
+    return `${invitation.seo.title} - Untuk ${guestName.value}`
   }
   return invitation.seo.title
 })
 
 const metaDescription = computed(() => {
   if (hasPersonalizedGuest.value && guestName.value) {
-    return `Kepada Yth. ${guestName.value}, kami mengundang Anda untuk menghadiri acara pernikahan kami pada Minggu, 11 Oktober 2026.`
+    return `Kepada Yth. ${guestName.value}, kami mengundang Anda untuk menghadiri acara pernikahan kami pada ${invitation.countdown.dateText}.`
   }
   return invitation.seo.description
 })
@@ -79,7 +79,7 @@ useSeoMeta({
   ogImageType: invitation.seo.ogImageType || 'image/jpeg',
   ogImageWidth: invitation.seo.ogImageWidth || 1200,
   ogImageHeight: invitation.seo.ogImageHeight || 630,
-  ogImageAlt: invitation.seo.ogImageAlt || 'The Wedding of Ella & Yono',
+  ogImageAlt: invitation.seo.ogImageAlt || metaTitle.value,
   ogUrl: fullUrl,
   ogType: invitation.seo.ogType || 'website',
   ogSiteName: invitation.seo.ogSiteName || 'Undangy',
