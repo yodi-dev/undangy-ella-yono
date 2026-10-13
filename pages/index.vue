@@ -11,7 +11,7 @@
       <ThemesMaroonStory :story="invitation.loveStory" />
       <ThemesMaroonEvent :events="invitation.events" />
       <ThemesMaroonGallery :gallery="invitation.gallery" />
-      <ThemesMaroonGift :gift="invitation.gift" />
+      <!-- <ThemesMaroonGift :gift="invitation.gift" /> -->
       <ThemesMaroonWishes />
       <ThemesMaroonTurutMengundang :turut-mengundang="invitation.turutMengundang" />
       <ThemesMaroonClosing :couple="invitation.couple" :closing="invitation.closing"
