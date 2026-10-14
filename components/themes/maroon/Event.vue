@@ -39,19 +39,22 @@
         <div
           v-for="(event, idx) in (events.length ? events : [mainEvent])"
           :key="event?.id || idx"
-          class="bg-[#F6EFE5] text-[#2C2021] rounded-sm p-6 sm:p-8 md:p-10 border border-[#C4A46C]/40 shadow-[0_16px_40px_rgba(0,0,0,0.35)]"
+          class="relative overflow-hidden bg-[#F6EFE5] text-[#2C2021] rounded-sm p-6 sm:p-8 md:p-10 border border-[#C4A46C]/40 shadow-[0_16px_40px_rgba(0,0,0,0.35)]"
           data-aos="fade-up"
           data-aos-duration="800"
           :data-aos-delay="150 + idx * 100"
         >
+          <!-- Top subtle gold hairline accent -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#C4A46C] to-transparent" />
+
           <!-- Event Subtitle / Name -->
           <div class="text-center mb-8 pb-6 border-b border-[#C4A46C]/30">
             <span
-              class="font-body text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#772638] font-medium block mb-1"
+              class="inline-block font-body text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#772638] bg-[#C4A46C]/20 px-3.5 py-1 rounded-full font-semibold mb-2"
             >
-              Acara
+              Rangkaian Acara
             </span>
-            <h3 class="font-serif text-2xl sm:text-3xl text-[#5A1724] font-normal tracking-wide">
+            <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl text-[#5A1724] font-normal tracking-wide">
               {{ event?.subTitle }}
             </h3>
           </div>
@@ -191,14 +194,14 @@
                 </div>
               </div>
 
-              <!-- CTA Button -->
-              <div class="pt-2">
+              <!-- CTA Buttons (Google Maps & Google Calendar) -->
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-3">
                 <a
                   v-if="getMapUrl(event)"
                   :href="getMapUrl(event)"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-[#5A1724] hover:bg-[#772638] text-[#F6EFE5] text-xs font-medium uppercase tracking-[0.2em] px-6 py-3 rounded-sm border border-[#C4A46C]/30 transition-all duration-300 shadow-sm"
+                  class="inline-flex items-center justify-center gap-2 bg-[#5A1724] hover:bg-[#772638] text-[#F6EFE5] text-xs font-medium uppercase tracking-[0.16em] px-5 py-3 rounded-sm border border-[#C4A46C]/40 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.01]"
                 >
                   <svg
                     class="w-4 h-4 text-[#C4A46C]"
@@ -213,19 +216,42 @@
                       d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                     />
                   </svg>
-                  <span>Buka Google Maps</span>
+                  <span>Buka Maps</span>
+                </a>
+
+                <a
+                  v-if="getCalendarUrl(event)"
+                  :href="getCalendarUrl(event)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center gap-2 bg-[#EDE0D0] hover:bg-[#E4D5C2] text-[#5A1724] hover:text-[#2C2021] text-xs font-medium uppercase tracking-[0.16em] px-5 py-3 rounded-sm border border-[#C4A46C]/60 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.01]"
+                >
+                  <svg
+                    class="w-4 h-4 text-[#5A1724]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <span>Simpan ke Kalender</span>
                 </a>
               </div>
             </div>
 
             <!-- Map Column -->
             <div
-              class="overflow-hidden rounded-sm border border-[#C4A46C]/30 shadow-inner h-64 sm:h-72 md:h-full min-h-[260px] bg-[#EDE0D0]"
+              class="overflow-hidden rounded-sm border border-[#C4A46C]/30 shadow-inner h-64 sm:h-72 md:h-full min-h-[280px] bg-[#EDE0D0]"
             >
               <iframe
                 v-if="event?.googleMapsEmbedUrl"
                 :src="event.googleMapsEmbedUrl"
-                class="w-full h-full min-h-[260px] border-0"
+                class="w-full h-full min-h-[280px] border-0"
                 loading="lazy"
                 allowfullscreen
                 referrerpolicy="no-referrer-when-downgrade"
@@ -266,5 +292,30 @@ function getMapUrl(event) {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`
   }
   return '#'
+}
+
+function getCalendarUrl(event) {
+  if (!event) return '#'
+
+  const title = `Pernikahan Ella & Yono - ${event.subTitle || 'Acara'}`
+  const details = `Menghadiri acara ${event.subTitle || 'Pernikahan'} Ella & Yono.\nLokasi: ${event.locationName || ''} (${event.address || ''})${event.entertainment ? `\nHiburan: ${event.entertainment}` : ''}`
+  const location = [event.locationName, event.address].filter(Boolean).join(', ')
+
+  let dates = '20261025T010000Z/20261025T100000Z'
+  if (event.id === 'masak-masak' || event.subTitle?.toLowerCase().includes('masak')) {
+    dates = '20261024T000000Z/20261024T100000Z'
+  } else if (event.id === 'resepsi' || event.subTitle?.toLowerCase().includes('resepsi')) {
+    dates = '20261025T010000Z/20261025T100000Z'
+  }
+
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: title,
+    dates,
+    details,
+    location,
+  })
+
+  return `https://calendar.google.com/calendar/render?${params.toString()}`
 }
 </script>

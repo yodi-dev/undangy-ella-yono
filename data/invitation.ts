@@ -47,7 +47,7 @@ export const invitation: InvitationData = {
     dividerIcon: '/icons/ring.png',
   },
   assets: {
-    landingBg: '/images/landing.webp',
+    landingBg: '/images/2.webp',
     countdownBg: '/images/countdown.webp',
   },
   countdown: {
@@ -75,7 +75,7 @@ export const invitation: InvitationData = {
     {
       id: 'resepsi',
       title: 'Wedding Event',
-      subTitle: 'Resepsi',
+      subTitle: 'Ngunduh Mantu',
       dateText: 'Minggu, 25 Oktober 2026',
       timeText: 'Pukul 08:00 - Selesai',
       locationName: 'Kediaman Mempelai Pria',
@@ -119,7 +119,7 @@ export const invitation: InvitationData = {
       { src: '/images/9.webp', alt: 'Potret Mempelai' },
       { src: '/images/10.webp', alt: 'Potret Mempelai' },
       { src: '/images/11.webp', alt: 'Potret Mempelai' },
-      { src: '/images/12.webp', alt: 'Potret Mempelai' },
+      // { src: '/images/12.webp', alt: 'Potret Mempelai' },
     ],
   },
   gift: {

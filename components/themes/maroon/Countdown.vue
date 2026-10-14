@@ -67,45 +67,37 @@
       </div>
 
       <!-- BAGIAN BAWAH: Countdown Units & Supporting Date -->
-      <div class="pb-20 sm:pb-4 md:pb-4 flex flex-col items-center space-y-3 sm:space-y-4">
-        <!-- Card-less Stationery Countdown Units -->
+      <div class="pb-16 sm:pb-8 md:pb-8 flex flex-col items-center space-y-3 sm:space-y-4 w-full">
+        <!-- Frosted Glassmorphism Countdown Capsules -->
         <div
-          class="flex items-center justify-center gap-2.5 sm:gap-5 md:gap-7"
+          class="grid grid-cols-4 gap-2 sm:gap-3.5 w-full max-w-xs sm:max-w-sm"
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="350"
         >
-          <template
-            v-for="(item, i) in countdownItems"
+          <div
+            v-for="item in countdownItems"
             :key="item.label"
+            class="flex flex-col items-center justify-center py-2.5 sm:py-3 px-1.5 rounded-xs bg-[#2A0D14]/65 backdrop-blur-md border border-[#C4A46C]/35 shadow-[0_8px_20px_rgba(0,0,0,0.45)] group hover:border-[#C4A46C]/60 transition-colors duration-300"
           >
-            <div class="flex flex-col items-center min-w-[50px] sm:min-w-[62px]">
-              <span
-                class="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-[#F6EFE5] tracking-tight tabular-nums leading-tight"
-                style="text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);"
-              >
-                {{ item.value }}
-              </span>
-              <span
-                class="font-body text-[9px] sm:text-[10px] tracking-[0.22em] text-[#C4A46C] uppercase mt-1"
-                style="text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);"
-              >
-                {{ item.label }}
-              </span>
-            </div>
-
-            <!-- Thin Vertical Champagne Divider -->
-            <div
-              v-if="i < countdownItems.length - 1"
-              class="h-6 sm:h-7 w-px bg-[#C4A46C]/40"
-            />
-          </template>
+            <span
+              class="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-[#F6EFE5] tracking-tight tabular-nums leading-none"
+              style="text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);"
+            >
+              {{ item.value }}
+            </span>
+            <span
+              class="font-body text-[8px] sm:text-[9px] tracking-[0.25em] text-[#C4A46C] uppercase mt-1.5 font-medium"
+            >
+              {{ item.label }}
+            </span>
+          </div>
         </div>
 
         <!-- Supporting Date Derived from Existing Data -->
         <p
           v-if="countdown?.dateText"
-          class="font-body text-xs sm:text-sm tracking-[0.22em] text-[#F6EFE5]/85"
+          class="font-body text-xs sm:text-sm tracking-[0.25em] text-[#F6EFE5]/90 uppercase font-light"
           style="text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);"
           data-aos="fade-in"
           data-aos-duration="800"

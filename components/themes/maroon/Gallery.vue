@@ -91,6 +91,33 @@
             <div class="absolute inset-0 ring-1 ring-inset ring-[#C4A46C]/20 pointer-events-none" />
           </div>
         </div>
+
+        <!-- 4. Curated Gallery Grid (Showcases all captured memories) -->
+        <div
+          v-if="remainingImages.length"
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-5 pt-2"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="250"
+        >
+          <div
+            v-for="(img, idx) in remainingImages"
+            :key="idx"
+            class="relative overflow-hidden rounded-sm border border-[#C4A46C]/35 shadow-[0_4px_20px_rgba(42,13,20,0.06)] cursor-pointer group aspect-[3/4] bg-[#EDE0D0]/50"
+            @click="showLightbox(getGlobalIndex(img))"
+          >
+            <img
+              loading="lazy"
+              :src="img.src"
+              :alt="img.alt"
+              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            >
+            <div
+              class="absolute inset-0 bg-[#2A0D14]/0 group-hover:bg-[#2A0D14]/15 transition-colors duration-300 pointer-events-none"
+            />
+            <div class="absolute inset-0 ring-1 ring-inset ring-[#C4A46C]/20 pointer-events-none" />
+          </div>
+        </div>
       </div>
 
       <!-- Unified Fullscreen Lightbox -->

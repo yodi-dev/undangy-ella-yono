@@ -34,7 +34,8 @@
       <!-- Centerpiece Couple Photography Moment -->
       <div class="max-w-md mx-auto my-8 sm:my-10" data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
         <div
-          class="relative overflow-hidden rounded-sm border border-[#C4A46C]/40 shadow-[0_16px_40px_rgba(0,0,0,0.55)] group aspect-[4/5] sm:aspect-[3/4] bg-[#2A0D14]">
+          class="relative overflow-hidden rounded-t-[7rem] sm:rounded-t-[9rem] rounded-b-xs border-2 border-[#C4A46C]/45 ring-4 ring-[#C4A46C]/10 shadow-[0_20px_50px_rgba(0,0,0,0.65)] group aspect-[4/5] sm:aspect-[3/4] bg-[#2A0D14]"
+        >
           <img loading="lazy" :src="closing?.photo || '/images/closing.webp'" alt="Foto Mempelai"
             class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
           <div
@@ -42,12 +43,12 @@
           <div class="absolute inset-0 ring-1 ring-inset ring-[#C4A46C]/25 pointer-events-none" />
 
           <!-- Floating Names & Date inside Photo -->
-          <div class="absolute bottom-4 inset-x-4 text-center text-[#F6EFE5] pointer-events-none">
-            <span class="font-heading text-2xl sm:text-3xl text-[#C4A46C] block leading-none drop-shadow-md">
+          <div class="absolute bottom-5 inset-x-4 text-center text-[#F6EFE5] pointer-events-none">
+            <span class="font-heading text-3xl sm:text-4xl text-[#C4A46C] block leading-none drop-shadow-md">
               {{ couple?.shortName }}
             </span>
             <span v-if="dateText"
-              class="font-body text-[10px] sm:text-xs tracking-[0.3em] text-[#F6EFE5]/85 uppercase mt-1.5 block drop-shadow-sm">
+              class="font-body text-[10px] sm:text-xs tracking-[0.3em] text-[#F6EFE5]/85 uppercase mt-2 block drop-shadow-sm">
               {{ dateText }}
             </span>
           </div>
@@ -55,11 +56,11 @@
       </div>
 
       <!-- Signature Section: Kami yang Berbahagia -->
-      <div class="space-y-2 mt-8 sm:mt-10" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">
+      <div class="space-y-3 mt-10 sm:mt-12" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">
         <p class="font-body text-xs sm:text-sm uppercase tracking-[0.3em] text-[#C4A46C] font-medium">
           {{ closing?.coupleText || 'Kami yang berbahagia' }}
         </p>
-        <h3 class="font-serif text-3xl sm:text-4xl md:text-5xl text-[#F6EFE5] font-normal tracking-wide">
+        <h3 class="font-heading text-4xl sm:text-5xl md:text-6xl text-[#F6EFE5] font-normal tracking-wide drop-shadow-sm">
           {{ couple?.shortName }}
         </h3>
       </div>

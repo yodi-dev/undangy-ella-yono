@@ -35,7 +35,7 @@
       </div>
 
       <!-- Editorial Timeline on Muted Maroon -->
-      <div class="relative max-w-xl mx-auto pl-8 sm:pl-10 border-l border-[#C4A46C]/40 space-y-12 sm:space-y-16">
+      <div class="relative max-w-xl mx-auto pl-8 sm:pl-10 border-l border-[#C4A46C]/40 space-y-10 sm:space-y-12">
         <div
           v-for="(event, idx) in timeline"
           :key="idx"
@@ -44,17 +44,24 @@
           data-aos-duration="800"
           :data-aos-delay="150 + idx * 100"
         >
-          <!-- Timeline Diamond Node -->
+          <!-- Timeline Diamond Node with Glowing Accent -->
           <div
-            class="absolute -left-[37px] sm:-left-[45px] top-1.5 w-3 h-3 rotate-45 border border-[#C4A46C] bg-[#4A141E] transition-colors duration-300 group-hover:bg-[#C4A46C]"
-          />
+            class="absolute -left-[38px] sm:-left-[46px] top-4 w-3.5 h-3.5 rotate-45 border border-[#C4A46C] bg-[#4A141E] shadow-[0_0_8px_rgba(196,164,108,0.4)] transition-all duration-300 group-hover:bg-[#C4A46C] group-hover:scale-125 flex items-center justify-center"
+          >
+            <div class="w-1 h-1 bg-[#C4A46C] rounded-full group-hover:bg-[#4A141E]" />
+          </div>
 
-          <!-- Milestone Content with Clear Contrast -->
-          <div>
-            <h3 class="font-serif text-xl sm:text-2xl text-[#F6EFE5] font-normal tracking-wide">
-              {{ event.date }}
-            </h3>
-            <p class="font-body text-xs sm:text-sm text-[#F6EFE5]/85 leading-relaxed mt-2.5">
+          <!-- Milestone Content Card with Elevated Contrast & Warm Tone -->
+          <div
+            class="bg-[#3D1018]/60 hover:bg-[#3D1018]/90 backdrop-blur-xs p-5 sm:p-6 rounded-sm border border-[#C4A46C]/25 transition-all duration-300 hover:border-[#C4A46C]/50 shadow-[0_8px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]"
+          >
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[#C4A46C] text-xs">❦</span>
+              <h3 class="font-serif text-lg sm:text-xl text-[#F6EFE5] font-medium tracking-wide">
+                {{ event.date }}
+              </h3>
+            </div>
+            <p class="font-body text-xs sm:text-sm text-[#F6EFE5]/85 leading-relaxed">
               {{ event.description }}
             </p>
           </div>
